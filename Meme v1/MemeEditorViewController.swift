@@ -156,7 +156,6 @@ class MemeEditorViewController: UIViewController {
 extension MemeEditorViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func presentPickerViewController(source: UIImagePickerController.SourceType) {
-        //TODO: - Create a `UIImagePickerController`, set it's source, and present it here.
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = source
