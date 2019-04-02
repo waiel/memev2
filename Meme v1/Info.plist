@@ -42,8 +42,10 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>NSCameraUsageDescription</key>
-	<string>Meme app Requries access for the camera to capture images </string>
+	<string>Meme app requries access to the camera to capture images </string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Meme app requries access to the photo library for images </string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Meme app requries access to the photo library to save images</string>
 </dict>
 </plist>
