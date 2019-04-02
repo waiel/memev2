@@ -20,12 +20,21 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         NSAttributedString.Key.strokeWidth: -2.0
     ]
     
+    struct Meme {
+        var topText: String
+        var bottomText: String
+        var originalImage: UIImage
+        var memeImage: UIImage
+    }
     
     
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
+    @IBOutlet weak var topToolbar: UIToolbar!
+    @IBOutlet weak var bottomToolbar: UIToolbar!
+    
     
     
     override func viewDidLoad() {
@@ -78,9 +87,20 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     }
     
     @IBAction func openShare(_ sender: Any) {
-                let image = UIImage()
-                let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
-                present(controller,animated: true,completion: nil)
+        let image = generateMemedImage()
+        let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        
+        //check if activity contoller dismissed
+        controller.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
+            if completed && error == nil  {
+                self.save()
+                
+            }
+          
+        }
+
+        
+        present(controller,animated: true,completion: nil)
     }
 
     
@@ -123,6 +143,34 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         topTextField.resignFirstResponder()
         
         return true
+    }
+    
+    //save images
+    func save(){
+        // Create the meme
+        _ = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imagePickerView.image!, memeImage: generateMemedImage())
+
+    }
+    
+    
+    //generate meme image
+    func generateMemedImage() -> UIImage {
+        
+         // TODO: Hide toolbar and navbar
+        self.topToolbar.isHidden = true
+        self.bottomToolbar.isHidden = true
+        
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
+        let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        // TODO: Show toolbar and navbar
+        self.topToolbar.isHidden = false
+        self.bottomToolbar.isHidden = false
+        
+        return memedImage
     }
     
 }
