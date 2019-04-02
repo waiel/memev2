@@ -15,18 +15,11 @@ class MemeEditorViewController: UIViewController,UIImagePickerControllerDelegate
     
     //MARK: variables declaration requried
     let memeTextAttributes: [NSAttributedString.Key: Any] = [
-        NSAttributedString.Key.strokeColor: UIColor.black,
-        NSAttributedString.Key.foregroundColor: UIColor.white,
-        NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSAttributedString.Key.strokeWidth: -2.0
+        .strokeColor: UIColor.black,
+        .foregroundColor: UIColor.white,
+        .font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+        .strokeWidth: -2.0
     ]
-    
-    struct Meme {
-        var topText: String
-        var bottomText: String
-        var originalImage: UIImage
-        var memeImage: UIImage
-    }
     
     
     //MARK: IBOutlet definitions
@@ -60,16 +53,21 @@ class MemeEditorViewController: UIViewController,UIImagePickerControllerDelegate
     }
     
     
+    
+    func setupTextField(_ textField: UITextField, text: String) {
+        //TODO: Set up text field here
+        textField.defaultTextAttributes = memeTextAttributes
+        textField.textAlignment = .center
+        textField.text = text
+        
+    }
+    
     //reset applicaiton to default state
     func resetState(){
         imagePickerView.image = nil
         imagePickerView.backgroundColor = UIColor.black
-        topTextField.defaultTextAttributes = memeTextAttributes
-        bottomTextField.defaultTextAttributes  = memeTextAttributes
-        topTextField.text = "TOP"
-        topTextField.textAlignment = .center
-        bottomTextField.text = "BOTTOM"
-        bottomTextField.textAlignment = .center
+        setupTextField(topTextField, text: "TOP")
+        setupTextField(bottomTextField, text: "BOTTOM")
         shareButton.isEnabled = false
     }
     
@@ -127,6 +125,17 @@ class MemeEditorViewController: UIViewController,UIImagePickerControllerDelegate
     
     //MARK: Image related fucntions
     
+    
+    func presentPickerViewController(source: UIImagePickerController.SourceType) {
+        //TODO: - Create a `UIImagePickerController`, set it's source, and present it here.
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = source
+        present(imagePicker, animated: true, completion: nil)
+        
+    }
+    
+    
     // handel image selection from album
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
@@ -165,18 +174,13 @@ class MemeEditorViewController: UIViewController,UIImagePickerControllerDelegate
     
     //pick image from camera
     @IBAction func openCamera(_ sender: Any) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .camera
-        present(imagePicker, animated: true, completion: nil)
+        presentPickerViewController(source: .camera)
+    
     }
     
     //pick image from album
     @IBAction func pickAnImage(_ sender: Any) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .photoLibrary
-        present(imagePicker, animated: true, completion: nil)
+        presentPickerViewController(source: .photoLibrary)
     }
     
     //open share activity
