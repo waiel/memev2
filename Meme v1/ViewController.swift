@@ -34,6 +34,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     @IBOutlet weak var bottomTextField: UITextField!
     @IBOutlet weak var topToolbar: UIToolbar!
     @IBOutlet weak var bottomToolbar: UIToolbar!
+    @IBOutlet weak var shareButton: UIBarButtonItem!
     
     
     
@@ -48,6 +49,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         bottomTextField.textAlignment = .center
         topTextField.delegate = self
         bottomTextField.delegate = self
+        shareButton.isEnabled = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -81,6 +83,8 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             imagePickerView.image = image
+            //enable share button
+            shareButton.isEnabled = true
         }
         //close the image picker 
          self.dismiss(animated: true, completion: nil)
