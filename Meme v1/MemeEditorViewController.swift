@@ -8,9 +8,7 @@
 
 import UIKit
 
-
-
-class MemeEditorViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate {
+class MemeEditorViewController: UIViewController {
 
     
     //MARK: variables declaration requried
@@ -20,7 +18,6 @@ class MemeEditorViewController: UIViewController,UIImagePickerControllerDelegate
         .font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
         .strokeWidth: -2.0
     ]
-    
     
     //MARK: IBOutlet definitions
     @IBOutlet weak var imagePickerView: UIImageView!
@@ -52,23 +49,13 @@ class MemeEditorViewController: UIViewController,UIImagePickerControllerDelegate
         unsubscribeFromKeyboardNotifications()
     }
     
-    
-    
-    func setupTextField(_ textField: UITextField, text: String) {
-        //TODO: Set up text field here
-        textField.defaultTextAttributes = memeTextAttributes
-        textField.textAlignment = .center
-        textField.text = text
-        
-    }
-    
     //reset applicaiton to default state
     func resetState(){
         imagePickerView.image = nil
         imagePickerView.backgroundColor = UIColor.black
+        shareButton.isEnabled = false
         setupTextField(topTextField, text: "TOP")
         setupTextField(bottomTextField, text: "BOTTOM")
-        shareButton.isEnabled = false
     }
     
     //MARK: Keyboard functions
@@ -85,7 +72,6 @@ class MemeEditorViewController: UIViewController,UIImagePickerControllerDelegate
     @objc func keyboardWillHide(_ notification: Notification) {
         view.frame.origin.y = 0
     }
-    
     
     //get the keyboard layout height
     func getKeyboardHeight(_ notification: Notification) -> CGFloat {
@@ -106,46 +92,7 @@ class MemeEditorViewController: UIViewController,UIImagePickerControllerDelegate
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    
-    //MARK: textField Functions
-    
-    //reset field if editing
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        if textField.text == "TOP" || textField.text == "BOTTOM" {
-            textField.text = ""
-        }
-    }
-
-    //hide keyboard when return pressed
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        bottomTextField.resignFirstResponder()
-        topTextField.resignFirstResponder()
-        return true
-    }
-    
-    //MARK: Image related fucntions
-    
-    
-    func presentPickerViewController(source: UIImagePickerController.SourceType) {
-        //TODO: - Create a `UIImagePickerController`, set it's source, and present it here.
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = source
-        present(imagePicker, animated: true, completion: nil)
-        
-    }
-    
-    
-    // handel image selection from album
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            imagePickerView.image = image
-            //enable share button
-            shareButton.isEnabled = true
-        }
-        //close the image picker
-        self.dismiss(animated: true, completion: nil)
-    }
+    //MARK: Meme image
     
     //save meme image
     func saveMeme(){
@@ -194,7 +141,6 @@ class MemeEditorViewController: UIViewController,UIImagePickerControllerDelegate
             if completed && error == nil {
                 self.saveMeme()
             }
-            
         }
         present(controller,animated: true,completion: nil)
     }
@@ -202,5 +148,55 @@ class MemeEditorViewController: UIViewController,UIImagePickerControllerDelegate
     //cancel and reset app
     @IBAction func cancelMeme(_ sender: Any) {
         resetState()
+    }
+}
+
+//MARK: UIImagePickerControllerDelegate extention
+
+extension MemeEditorViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func presentPickerViewController(source: UIImagePickerController.SourceType) {
+        //TODO: - Create a `UIImagePickerController`, set it's source, and present it here.
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = source
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    
+    // handel image selection from album
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            imagePickerView.image = image
+            //enable share button
+            shareButton.isEnabled = true
+        }
+        //close the image picker
+        self.dismiss(animated: true, completion: nil)
+    }
+}
+
+//MARK: UITextFieldDelegate extention
+extension MemeEditorViewController: UITextFieldDelegate {
+
+   //setup textField
+    func setupTextField(_ textField: UITextField, text: String) {
+        textField.defaultTextAttributes = memeTextAttributes
+        textField.textAlignment = .center
+        textField.text = text
+    }
+    
+    //reset field if editing
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField.text == "TOP" || textField.text == "BOTTOM" {
+            textField.text = ""
+        }
+    }
+    
+    //hide keyboard when return pressed
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        bottomTextField.resignFirstResponder()
+        topTextField.resignFirstResponder()
+        return true
     }
 }
