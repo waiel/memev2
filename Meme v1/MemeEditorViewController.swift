@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MemeEditorViewController.swift
 //  Meme v1
 //
 //  Created by Waiel Eid on 1/4/19.
@@ -10,7 +10,7 @@ import UIKit
 
 
 
-class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate {
+class MemeEditorViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate {
 
     
     //MARK: variables declaration requried
@@ -185,7 +185,8 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         //add a check if activity contoller dismissed and save image if action completed
         controller.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
-            //save if action complete and there was no error 
+            //save if action complete and there was no error
+            
             if completed && error == nil {
                 self.saveMeme()
             }
