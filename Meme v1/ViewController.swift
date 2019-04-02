@@ -35,6 +35,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     @IBOutlet weak var topToolbar: UIToolbar!
     @IBOutlet weak var bottomToolbar: UIToolbar!
     @IBOutlet weak var shareButton: UIBarButtonItem!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
     
     
     
@@ -109,15 +110,24 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
 
     
     // When showing lifts screen up
-    @objc func keyboardWillShow(_ notification:Notification) {
+    @objc func keyboardWillShow(_ notification: Notification) {
+        //reaise keyboard for lower text only
         if bottomTextField.isEditing {
             view.frame.origin.y -= getKeyboardHeight(notification)
         }
     }
     
     // When hiding return to original state
-    @objc func keyboardWillHide(_ notification:Notification) {
+    @objc func keyboardWillHide(_ notification: Notification) {
         view.frame.origin.y = 0
+    }
+    
+    
+    //reset field if editing
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField.text == "TOP" || textField.text == "BOTTOM" {
+            textField.text = ""
+        }
     }
     
     //get the keyboard layout height
@@ -177,4 +187,20 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         return memedImage
     }
     
+    
+    func resetState(){
+        imagePickerView.image = nil
+        cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+        topTextField.defaultTextAttributes = memeTextAttributes
+        bottomTextField.defaultTextAttributes  = memeTextAttributes
+        topTextField.text = "TOP"
+        topTextField.textAlignment = .center
+        bottomTextField.text = "BOTTOM"
+        bottomTextField.textAlignment = .center
+        shareButton.isEnabled = false
+    }
+    
+    @IBAction func cancelMeme(_ sender: Any) {
+        self.resetState()
+    }
 }
