@@ -63,6 +63,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     //reset applicaiton to default state
     func resetState(){
         imagePickerView.image = nil
+        imagePickerView.backgroundColor = UIColor.black
         topTextField.defaultTextAttributes = memeTextAttributes
         bottomTextField.defaultTextAttributes  = memeTextAttributes
         topTextField.text = "TOP"
