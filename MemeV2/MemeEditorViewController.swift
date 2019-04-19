@@ -1,6 +1,6 @@
 //
 //  MemeEditorViewController.swift
-//  Meme v1
+//  MemeV2
 //
 //  Created by Waiel Eid on 1/4/19.
 //  Copyright © 2019 Waiel Eid. All rights reserved.
@@ -94,10 +94,21 @@ class MemeEditorViewController: UIViewController {
     
     //MARK: Meme image
     
+//    //save meme image
+//    func saveMeme(){
+//        // Create the meme
+//        _ = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imagePickerView.image!, memeImage: generateMemedImage())
+//    }
+    
     //save meme image
-    func saveMeme(){
+    func saveMeme() {
         // Create the meme
-        _ = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imagePickerView.image!, memeImage: generateMemedImage())
+        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imagePickerView.image ?? <#default value#>, memeImage: generateMemedImage())
+        
+        // Add it to the memes array in the Application Delegate
+        let object = UIApplication.shared.delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(meme)
     }
     
     //generate meme image

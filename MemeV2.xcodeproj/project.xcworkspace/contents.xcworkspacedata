@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Meme v1.xcodeproj">
+      location = "self:/Users/waieleid/Code/iOS Projects/MemeV2/MemeV2.xcodeproj">
    </FileRef>
 </Workspace>

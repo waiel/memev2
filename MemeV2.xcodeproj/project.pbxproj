@@ -17,7 +17,7 @@
 
 /* Begin PBXFileReference section */
 		960336F522540BE400116A37 /* Meme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
-		968CAA942251FFB200B5BB4D /* Meme v1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meme v1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		968CAA942251FFB200B5BB4D /* MemeV2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeV2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		968CAA972251FFB200B5BB4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		968CAA992251FFB200B5BB4D /* MemeEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeEditorViewController.swift; sourceTree = "<group>"; };
 		968CAA9C2251FFB200B5BB4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -40,7 +40,7 @@
 		968CAA8B2251FFB200B5BB4D = {
 			isa = PBXGroup;
 			children = (
-				968CAA962251FFB200B5BB4D /* Meme v1 */,
+				968CAA962251FFB200B5BB4D /* MemeV2 */,
 				968CAA952251FFB200B5BB4D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,12 +48,12 @@
 		968CAA952251FFB200B5BB4D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				968CAA942251FFB200B5BB4D /* Meme v1.app */,
+				968CAA942251FFB200B5BB4D /* MemeV2.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		968CAA962251FFB200B5BB4D /* Meme v1 */ = {
+		968CAA962251FFB200B5BB4D /* MemeV2 */ = {
 			isa = PBXGroup;
 			children = (
 				968CAA972251FFB200B5BB4D /* AppDelegate.swift */,
@@ -64,15 +64,15 @@
 				968CAAA32251FFB300B5BB4D /* Info.plist */,
 				960336F522540BE400116A37 /* Meme.swift */,
 			);
-			path = "Meme v1";
+			path = MemeV2;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		968CAA932251FFB200B5BB4D /* Meme v1 */ = {
+		968CAA932251FFB200B5BB4D /* MemeV2 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 968CAAA62251FFB300B5BB4D /* Build configuration list for PBXNativeTarget "Meme v1" */;
+			buildConfigurationList = 968CAAA62251FFB300B5BB4D /* Build configuration list for PBXNativeTarget "MemeV2" */;
 			buildPhases = (
 				968CAA902251FFB200B5BB4D /* Sources */,
 				968CAA912251FFB200B5BB4D /* Frameworks */,
@@ -82,9 +82,9 @@
 			);
 			dependencies = (
 			);
-			name = "Meme v1";
+			name = MemeV2;
 			productName = "Meme v1";
-			productReference = 968CAA942251FFB200B5BB4D /* Meme v1.app */;
+			productReference = 968CAA942251FFB200B5BB4D /* MemeV2.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -102,7 +102,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 968CAA8F2251FFB200B5BB4D /* Build configuration list for PBXProject "Meme v1" */;
+			buildConfigurationList = 968CAA8F2251FFB200B5BB4D /* Build configuration list for PBXProject "MemeV2" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -115,7 +115,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				968CAA932251FFB200B5BB4D /* Meme v1 */,
+				968CAA932251FFB200B5BB4D /* MemeV2 */,
 			);
 		};
 /* End PBXProject section */
@@ -293,7 +293,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.waiel.Meme-v1";
+				PRODUCT_BUNDLE_IDENTIFIER = com.waiel.MemeV2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -311,7 +311,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.waiel.Meme-v1";
+				PRODUCT_BUNDLE_IDENTIFIER = com.waiel.MemeV2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -321,7 +321,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		968CAA8F2251FFB200B5BB4D /* Build configuration list for PBXProject "Meme v1" */ = {
+		968CAA8F2251FFB200B5BB4D /* Build configuration list for PBXProject "MemeV2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				968CAAA42251FFB300B5BB4D /* Debug */,
@@ -330,7 +330,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		968CAAA62251FFB300B5BB4D /* Build configuration list for PBXNativeTarget "Meme v1" */ = {
+		968CAAA62251FFB300B5BB4D /* Build configuration list for PBXNativeTarget "MemeV2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				968CAAA72251FFB300B5BB4D /* Debug */,
