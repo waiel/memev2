@@ -11,7 +11,7 @@ import UIKit
 
 class MemeTableViewController: UITableViewController {
     
-    
+    //Get the memes
     var memes: [Meme]! {
         let object = UIApplication.shared.delegate
         let appDelegate = object as! AppDelegate
@@ -20,15 +20,17 @@ class MemeTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //reload data in table
         tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        //reload data in table
         tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //print(memes.count)
+        //return the number of memes in the array
         return memes.count
     }
     
@@ -38,15 +40,27 @@ class MemeTableViewController: UITableViewController {
         let meme = memes[indexPath.row]
         
         // Set the name and image
-        cell.MemeImage.image = meme.originalImage
+        cell.MemeImage.image = meme.memeImage
         cell.MemeText.text = meme.topText  + "\n" + meme.bottomText
-        
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //set the detail view screen
+        let Detailview = self.storyboard?.instantiateViewController(withIdentifier: "MemeDtetailView") as! MemeDetailsViewController
+        //hide the Tab bar
+        Detailview.hidesBottomBarWhenPushed = true;
+        //set the selected meme
+        let meme = memes[indexPath.row]
+        Detailview.meme = meme
+        //show the detail view screen
+        self.navigationController?.pushViewController(Detailview, animated: true)
+        
     }
     
     

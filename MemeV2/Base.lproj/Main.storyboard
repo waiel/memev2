@@ -231,12 +231,41 @@
             </objects>
             <point key="canvasLocation" x="1189" y="471"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Meme Details View Controller-->
+        <scene sceneID="PWF-Uo-0Jv">
+            <objects>
+                <viewController storyboardIdentifier="MemeDtetailView" id="QSn-xv-GuN" customClass="MemeDetailsViewController" customModule="MemeV2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yAv-k1-24O">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NSg-as-hAa">
+                                <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Zrr-4U-jxs" firstAttribute="trailing" secondItem="NSg-as-hAa" secondAttribute="trailing" id="F39-gh-odh"/>
+                            <constraint firstItem="NSg-as-hAa" firstAttribute="leading" secondItem="Zrr-4U-jxs" secondAttribute="leading" id="MQh-kH-UWM"/>
+                            <constraint firstItem="NSg-as-hAa" firstAttribute="top" secondItem="Zrr-4U-jxs" secondAttribute="top" id="eTe-fg-xZj"/>
+                            <constraint firstItem="Zrr-4U-jxs" firstAttribute="bottom" secondItem="NSg-as-hAa" secondAttribute="bottom" id="sWk-1u-SuR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Zrr-4U-jxs"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="NSg-as-hAa" id="iag-Bu-f78"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O7W-7W-0Qo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1189" y="1186"/>
+        </scene>
+        <!--Table-->
         <scene sceneID="Au3-zV-jdr">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V1X-Su-r13" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lc1-Gv-U5m" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" selectedImage="Table" id="VfD-Ld-BBi"/>
+                    <tabBarItem key="tabBarItem" title="Table" image="Table" id="VfD-Ld-BBi"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="F8r-0v-ujN">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
@@ -268,12 +297,12 @@
             </objects>
             <point key="canvasLocation" x="-2438" y="470"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Collection-->
         <scene sceneID="n56-Lu-DED">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7gI-ge-lyf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9Ue-5A-112" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" selectedImage="Collection" id="RbF-qK-9He"/>
+                    <tabBarItem key="tabBarItem" title="Collection" image="Collection" id="RbF-qK-9He"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bc1-eA-uUF">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>

@@ -94,12 +94,6 @@ class MemeEditorViewController: UIViewController {
     
     //MARK: Meme image
     
-//    //save meme image
-//    func saveMeme(){
-//        // Create the meme
-//        _ = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imagePickerView.image!, memeImage: generateMemedImage())
-//    }
-    
     //save meme image
     func saveMeme() {
         // Create the meme
