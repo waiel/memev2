@@ -13,6 +13,7 @@
 		968CAA9D2251FFB200B5BB4D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 968CAA9B2251FFB200B5BB4D /* Main.storyboard */; };
 		968CAA9F2251FFB300B5BB4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 968CAA9E2251FFB300B5BB4D /* Assets.xcassets */; };
 		968CAAA22251FFB300B5BB4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 968CAAA02251FFB300B5BB4D /* LaunchScreen.storyboard */; };
+		96CA254B226A7EFA005C82F2 /* MemeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA254A226A7EFA005C82F2 /* MemeTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		968CAA9E2251FFB300B5BB4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		968CAAA12251FFB300B5BB4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		968CAAA32251FFB300B5BB4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96CA254A226A7EFA005C82F2 /* MemeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				968CAAA02251FFB300B5BB4D /* LaunchScreen.storyboard */,
 				968CAAA32251FFB300B5BB4D /* Info.plist */,
 				960336F522540BE400116A37 /* Meme.swift */,
+				96CA254A226A7EFA005C82F2 /* MemeTableViewController.swift */,
 			);
 			path = MemeV2;
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 				960336F622540BE400116A37 /* Meme.swift in Sources */,
 				968CAA9A2251FFB200B5BB4D /* MemeEditorViewController.swift in Sources */,
 				968CAA982251FFB200B5BB4D /* AppDelegate.swift in Sources */,
+				96CA254B226A7EFA005C82F2 /* MemeTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,7 +292,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V73ZG33AX4;
-				INFOPLIST_FILE = "Meme v1/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/MemeV2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -306,7 +310,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V73ZG33AX4;
-				INFOPLIST_FILE = "Meme v1/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/MemeV2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

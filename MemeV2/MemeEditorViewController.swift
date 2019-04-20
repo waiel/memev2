@@ -103,7 +103,7 @@ class MemeEditorViewController: UIViewController {
     //save meme image
     func saveMeme() {
         // Create the meme
-        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imagePickerView.image ?? <#default value#>, memeImage: generateMemedImage())
+        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imagePickerView.image!,memeImage:  self.generateMemedImage())
         
         // Add it to the memes array in the Application Delegate
         let object = UIApplication.shared.delegate
@@ -159,6 +159,7 @@ class MemeEditorViewController: UIViewController {
     //cancel and reset app
     @IBAction func cancelMeme(_ sender: Any) {
         resetState()
+        dismiss(animated: true, completion: nil)
     }
 }
 
