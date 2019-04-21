@@ -64,7 +64,7 @@ class MemeEditorViewController: UIViewController {
     @objc func keyboardWillShow(_ notification: Notification) {
         //reaise keyboard for lower text only
         if bottomTextField.isEditing {
-            view.frame.origin.y -= getKeyboardHeight(notification)
+            view.frame.origin.y = getKeyboardHeight(notification) * (-1)
         }
     }
     
@@ -105,19 +105,23 @@ class MemeEditorViewController: UIViewController {
         appDelegate.memes.append(meme)
     }
     
+    func toggleToolbar(_ show: Bool) {
+        
+        self.topToolbar.isHidden = show
+        self.bottomToolbar.isHidden = show
+    }
+    
     //generate meme image
     func generateMemedImage() -> UIImage {
         //hide toolbars
-        self.topToolbar.isHidden = true
-        self.bottomToolbar.isHidden = true
+        toggleToolbar(true);
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
         let memeImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         // Show toolbar
-        self.topToolbar.isHidden = false
-        self.bottomToolbar.isHidden = false
+        toggleToolbar(false);
         return memeImage
     }
     
@@ -200,8 +204,7 @@ extension MemeEditorViewController: UITextFieldDelegate {
     
     //hide keyboard when return pressed
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        bottomTextField.resignFirstResponder()
-        topTextField.resignFirstResponder()
+        textField.resignFirstResponder()
         return true
     }
 }

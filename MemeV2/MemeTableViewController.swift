@@ -25,6 +25,7 @@ class MemeTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         //reload data in table
         tableView.reloadData()
     }
